@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #faf8f5;
+  --color-cream-dark: #f0ebe4;
+  --color-navy: #1e293b;
+  --color-navy-light: #334155;
+  --color-gold: #d4a853;
+  --color-gold-light: #e8c97a;
+  --color-warm-gray: #6b7280;
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+
+  --font-heading: "Lora", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-navy);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Light ray decorative element */
+.light-rays {
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+  background: conic-gradient(
+    from 180deg at 50% 0%,
+    transparent 0deg,
+    rgba(212, 168, 83, 0.03) 15deg,
+    transparent 30deg,
+    rgba(212, 168, 83, 0.02) 60deg,
+    transparent 90deg,
+    rgba(212, 168, 83, 0.03) 120deg,
+    transparent 150deg,
+    rgba(212, 168, 83, 0.02) 180deg,
+    transparent 210deg,
+    rgba(212, 168, 83, 0.03) 240deg,
+    transparent 270deg,
+    rgba(212, 168, 83, 0.02) 300deg,
+    transparent 330deg,
+    rgba(212, 168, 83, 0.03) 360deg
+  );
+}
+
+/* Subtle cross watermark */
+.cross-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+}
+
+.cross-watermark::before,
+.cross-watermark::after {
+  content: "";
+  position: absolute;
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+.cross-watermark::before {
+  width: 6px;
+  height: 160px;
+  top: -80px;
+  left: -3px;
+}
+
+.cross-watermark::after {
+  width: 100px;
+  height: 6px;
+  top: -40px;
+  left: -50px;
+}
